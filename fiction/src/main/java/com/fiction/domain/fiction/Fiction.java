@@ -1,4 +1,4 @@
-package com.fiction.domain.posts;
+package com.fiction.domain.fiction;
 
 import com.fiction.domain.BaseTimeEntity;
 import jakarta.persistence.Column;
@@ -13,11 +13,11 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Posts extends BaseTimeEntity {
+public class Fiction extends BaseTimeEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+  private Long fictionId;
 
   @Column(length = 500, nullable = false)
   private String title;
@@ -29,7 +29,7 @@ public class Posts extends BaseTimeEntity {
   private String author;
 
   @Builder
-  public Posts(String title, String content, String author) {
+  public Fiction(String title, String content, String author) {
     this.title = title;
     this.content = content;
     this.author = author;

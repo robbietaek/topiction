@@ -1,18 +1,18 @@
 package com.fiction.web.fictboard.dto;
 
-import com.fiction.domain.posts.Posts;
+import com.fiction.domain.fiction.Fiction;
 import lombok.Getter;
 
 @Getter
-public class PostsResponseDto {
+public class FictionResponseDto {
 
-  private Long id;
+  private Long fictionId;
   private String title;
   private String content;
   private String author;
 
-  public PostsResponseDto(Posts entity) {
-    this.id = entity.getId();
+  public FictionResponseDto(Fiction entity) {
+    this.fictionId = entity.getFictionId();
     this.title = entity.getTitle();
     this.content = entity.getContent();
     this.author = entity.getAuthor();
