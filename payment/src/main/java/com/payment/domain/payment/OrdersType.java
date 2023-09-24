@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum OrderType {
+public enum OrdersType {
 
   ORDER("ORDER", "주문완료"),
   PAY("PAY", "결제완료"),

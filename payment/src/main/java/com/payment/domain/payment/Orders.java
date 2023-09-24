@@ -1,6 +1,5 @@
 package com.payment.domain.payment;
 
-import com.payment.domain.BaseTimeEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -8,15 +7,16 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import java.util.Date;
+import java.time.LocalDateTime;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
 
 @Getter
 @NoArgsConstructor
 @Entity
-public class Order extends BaseTimeEntity {
+public class Orders {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,23 +33,22 @@ public class Order extends BaseTimeEntity {
 
   @Enumerated(EnumType.STRING)
   @Column(nullable = false)
-  private OrderType orderType;
+  private OrdersType orderType;
 
-  @Column(nullable = false)
-  private Date buyingDate;
+  @CreatedDate
+  private LocalDateTime orderDate;
 
   @Builder
-  public Order(Long orderId, Long fictionId, Long userId, OrderType orderType, Long price,
-      Date buyingDate) {
-    this.orderId = orderId;
+  public Orders(Long fictionId, Long userId, OrdersType orderType, Long price,
+      LocalDateTime orderDate) {
     this.fictionId = fictionId;
     this.userId = userId;
     this.orderType = orderType;
     this.price = price;
-    this.buyingDate = buyingDate;
+    this.orderDate = orderDate;
   }
 
-  public void update(OrderType orderType) {
+  public void update(OrdersType orderType) {
     this.orderType = orderType;
   }
 
