@@ -32,14 +32,14 @@ public class User extends BaseTimeEntity {
 
   @Enumerated(EnumType.STRING)
   @Column(nullable = false)
-  private Role role;
+  private RoleType roleType;
 
   @Builder
-  public User(String name, String email, String picture, Role role) {
+  public User(String name, String email, String picture, RoleType roleType) {
     this.name = name;
     this.email = email;
     this.picture = picture;
-    this.role = role;
+    this.roleType = roleType;
   }
 
   public User update(String name, String picture) {
@@ -49,7 +49,7 @@ public class User extends BaseTimeEntity {
   }
 
   public String getRoleKey() {
-    return this.role.getKey();
+    return this.roleType.getKey();
   }
 
 }

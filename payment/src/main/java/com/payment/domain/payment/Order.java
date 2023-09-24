@@ -3,6 +3,8 @@ package com.payment.domain.payment;
 import com.payment.domain.BaseTimeEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,17 +26,31 @@ public class Order extends BaseTimeEntity {
   private Long fictionId;
 
   @Column(nullable = false)
+  private Long userId;
+
+  @Column(nullable = false)
   private Long price;
+
+  @Enumerated(EnumType.STRING)
+  @Column(nullable = false)
+  private OrderType orderType;
 
   @Column(nullable = false)
   private Date buyingDate;
 
   @Builder
-  public Order(Long orderId, Long fictionId, Long price, Date buyingDate) {
+  public Order(Long orderId, Long fictionId, Long userId, OrderType orderType, Long price,
+      Date buyingDate) {
     this.orderId = orderId;
     this.fictionId = fictionId;
+    this.userId = userId;
+    this.orderType = orderType;
     this.price = price;
     this.buyingDate = buyingDate;
+  }
+
+  public void update(OrderType orderType) {
+    this.orderType = orderType;
   }
 
 }

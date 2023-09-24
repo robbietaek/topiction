@@ -1,7 +1,7 @@
 package com.fiction.config.auth;
 
 
-import com.fiction.domain.user.Role;
+import com.fiction.domain.user.RoleType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,7 +22,7 @@ public class SecurityConfig {
             .csrf(AbstractHttpConfigurer::disable).headers(headers -> headers.disable())
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/", "/css/**", "/images/**", "/js/**").permitAll()
-                .requestMatchers("/api/v1/").hasRole(Role.USER.name())
+                .requestMatchers("/api/v1/").hasRole(RoleType.USER.name())
                 .anyRequest().authenticated())
             .logout(logout -> logout
                 .logoutSuccessUrl("/"))

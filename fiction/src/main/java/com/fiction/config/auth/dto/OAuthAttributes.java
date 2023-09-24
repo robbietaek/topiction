@@ -1,6 +1,6 @@
 package com.fiction.config.auth.dto;
 
-import com.fiction.domain.user.Role;
+import com.fiction.domain.user.RoleType;
 import com.fiction.domain.user.User;
 import java.util.Map;
 import lombok.Builder;
@@ -64,7 +64,7 @@ public class OAuthAttributes {
         .name(name)
         .email(email)
         .picture(picture)
-        .role(Role.GUEST)
+        .roleType(RoleType.GUEST)
         .build();
   }
 }
