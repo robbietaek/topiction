@@ -1,7 +1,7 @@
 package com.payment.server.service;
 
-import com.payment.domain.payment.Orders;
-import com.payment.domain.payment.OrdersType;
+import com.payment.domain.order.Orders;
+import com.payment.domain.order.OrdersType;
 import java.time.LocalDateTime;
 import lombok.Builder;
 import lombok.Getter;

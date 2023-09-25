@@ -1,7 +1,7 @@
 package com.payment.server.dto;
 
-import com.payment.domain.payment.Orders;
-import com.payment.domain.payment.OrdersRepository;
+import com.payment.domain.order.Orders;
+import com.payment.domain.order.OrdersRepository;
 import com.payment.server.service.OrdersPayRequestDto;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
